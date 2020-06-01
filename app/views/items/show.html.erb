@@ -1,0 +1,23 @@
+<div class="container pt-4">
+  <div class="card-deck text-center">
+    <div class="card mb-4 shadow-sm">
+      <!-- Card header -->
+      <div class="card-header">
+        <h3 class="my-0 font-weight-normal text-secondary"><%= @items.title%></h3>
+      </div>
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" src="https://i.pinimg.com/originals/9b/59/87/9b59874cc4b095566b8d5ba453d3c53e.jpg" alt="Card image cap">
+      <!-- Card body -->
+      <div class="card-body text-left my-auto">
+        <p class="font-weight-bold"> Description : <%= @items.description %> </p>
+        </br>
+        <div class="p-2 text-dark btn btn-light"> 
+          <form action= "/charges/new" method="GET">
+            <input type="hidden" name="price" value="<%= @items.price %>">
+            <input type="submit" class="btn btn-info" value="J'achète">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

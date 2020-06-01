@@ -7,19 +7,23 @@
 
 </div>
 
-<!-- List of Events -->
+<!-- List of Items -->
 <div class="container">
-  <div class="row">
-    <% @items.reverse.each do |items| %>
-      <div class="col-md-4">
-        <div class="card-header">
-          <h2><%= items.title %></h2>
-        </div>
-        <div class="card-body">
-          <p><%= items.description %></p>
-          <div class="btn btn-info align-self-end"><%= link_to "J'achète", "#", class:"text-white" %></div>
+<div class="row">
+<% @items.each do |item| %>
+<div class="col-md-4">
+  <div class="card mb-4 box-shadow">
+    <img class="card-img-top" src="https://i.pinimg.com/originals/9b/59/87/9b59874cc4b095566b8d5ba453d3c53e.jpg" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text"><%= item.title %></p>
+      <div class="align-items-center">
+        <div class="btn-group">
+          <%=link_to "View", item_path(item.id), method: :get, class: "btn btn-sm btn-outline-secondary" %>
         </div>
       </div>
-    <%end%>
+    </div>
   </div>
+</div>
+<%end%>
+</div>
 </div>
