@@ -11,7 +11,7 @@
       <div class="card-body text-left my-auto">
         <p class="font-weight-bold"> Description : <%= @items.description %> </p>
         </br>
-        <div class="p-2 text-dark btn btn-light"> 
+        <div class="p-2 text-dark"> 
           <form action= "/charges/new" method="GET">
             <input type="hidden" name="price" value="<%= @items.price %>">
             <input type="submit" class="btn btn-info" value="J'achète">
