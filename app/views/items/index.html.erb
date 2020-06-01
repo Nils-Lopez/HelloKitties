@@ -2,10 +2,10 @@
 <div class="jumbotron text-center">
   <h2 class="display-3" style="color: #053557">HelloKitties</h2>
   <p class="lead">Miaow Miaow</p>
-
-  <%= link_to "Inscription", new_user_registration_path, class: "text-white btn btn-info" %>
-  <%= link_to "Connexion", new_user_session_path, class: "btn btn-outline-info" %>
-
+  <% unless user_signed_in? %>
+    <%= link_to "Inscription", new_user_registration_path, class: "text-white btn btn-info" %>
+    <%= link_to "Connexion", new_user_session_path, class: "btn btn-outline-info" %>
+  <%end%>
 </div>
 
 <!-- List of Items -->
