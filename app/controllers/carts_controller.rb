@@ -1,10 +1,11 @@
 class CartsController < ApplicationController
-  def index
-    @carts = Cart.all
-  end
+  before_action :authenticate_user!
 
+  def index
+  end
+  
   def show
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find_by(user_id: current_user.id)
   end
 
   def new
@@ -12,23 +13,30 @@ class CartsController < ApplicationController
   end
 
   def create
-    @cart = Cart.create()
+    @cart = Cart.create(user_id: current_user.id)
     redirect_to cart_path(@cart.id)
   end
 
   def edit
-    @cart = Cart.find(params[:id])
+    @cart = Cart.find_by(user_id: current_user.id)
   end
 
   def update
-    @cart = Cart.find(params[:id])
-    @cart.update()
+    @cart = Cart.find_by(user_id: current_user.id)
+    @cart.items.push(Item.find(params[:id]))
     redirect_to cart_path(@cart.id)
   end
 
+  def delete
+    @cart = Cart.find_by(user_id: current_user.id)
+    @item = Item.find(params[:id])
+    @cart.items.delete.(Item.find(params[:id]))
+    redirect_to carts_path
+  end
+
   def destroy
-    @cart = Cart.find(params[:id])
-    @cart.destroy
+    @cart = Cart.find_by(user_id: current_user.id)
+    @cart.items.clear
     redirect_to carts_path
   end
 end

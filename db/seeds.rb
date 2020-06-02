@@ -21,10 +21,11 @@ end
 
 ## Create Users sample
 10.times do
-  User.create(
+  @user = User.create(
     email: Faker::Internet.email,
     password: "azerty"
   )
+  Cart.create(user_id: @user.id)
 end
 
 ## Create Cart sample
