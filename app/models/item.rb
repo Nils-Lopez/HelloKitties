@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   ## Relationships:
   has_and_belongs_to_many :carts
 
+  has_many :orders
+  has_many :users, through: :orders
   ## Validations:
   #Titre mandatory and between 2 and 500 CHARACTERS
   validates :title, presence: true, length: { in: 2..500}
