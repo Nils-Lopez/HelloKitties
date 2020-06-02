@@ -30,7 +30,7 @@ class CartsController < ApplicationController
   def delete
     @cart = Cart.find_by(user_id: current_user.id)
     @item = Item.find(params[:id])
-    @cart.items.delete.(Item.find(params[:id]))
+    @cart.items.delete(Item.find(params[:id]))
     redirect_to carts_path
   end
 
