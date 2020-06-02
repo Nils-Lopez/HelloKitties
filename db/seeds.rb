@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+## Create items sample
 Item.destroy_all
 
 10.times do
@@ -17,3 +18,13 @@ Item.destroy_all
     price: Faker::Number.decimal(l_digits: 2)
   )
 end
+
+## Create Users sample
+10.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: "azerty"
+  )
+end
+
+## Create Cart sample
