@@ -3,6 +3,8 @@ class Item < ApplicationRecord
   has_many :carts, class_name: "cart", foreign_key: "cart_id"
   has_many :users, through: :carts
 
+  has_many :orders
+  has_many :users, through: :orders
   ## Validations:
   #Titre mandatory and between 2 and 500 CHARACTERS
   validates :title, presence: true, length: { in: 2..500}
