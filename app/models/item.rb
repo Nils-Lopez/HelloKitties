@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   ## Relationships:
-  has_and_belongs_to_many :user, join_table: "carts", foreign_key: "user_id"
+  has_many :carts, class_name: "cart", foreign_key: "cart_id"
+  has_many :users, through: :carts
 
   ## Validations:
   #Titre mandatory and between 2 and 500 CHARACTERS
