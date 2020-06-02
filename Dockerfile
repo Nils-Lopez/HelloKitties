@@ -28,7 +28,7 @@ RUN apk add --update --no-cache \
       tzdata \
       yarn 
 
-RUN gem install bundler -v 2.1.4
+RUN gem install bundler -v ${BUNDLER_VERSION}
 
 WORKDIR /app
 
@@ -41,6 +41,4 @@ RUN yarn install --check-files
 
 COPY . ./
 
-COPY ./docker/config/database.yml ./config/database.yml
-
-ENTRYPOINT ["./docker/entrypoints/docker-entrypoint.sh"]
+ENTRYPOINT ["./docker-entrypoint.sh"]
