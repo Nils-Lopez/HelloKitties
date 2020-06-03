@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :create_cart
   # a user has many carts:
   has_one :cart
   
@@ -9,4 +10,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  private
+  def create_cart
+    Cart.create(user_id: self.id)
+  end
 end

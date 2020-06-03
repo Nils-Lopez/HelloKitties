@@ -29,6 +29,5 @@
 
 # Ignore Dockerized PostgreSQL data files:
 /db/datas
-/config/database.yml
 
 /db/schema.rb
