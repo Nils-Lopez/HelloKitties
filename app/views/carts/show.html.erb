@@ -1,10 +1,8 @@
-<ul id="list_email">
-    <% @cart.items.each do |item| %>
-        <div>
-            <%= item.title %>
-            <%= item.description %>
-            <%= item.price %>
-        </div>
-    <% end %>
-</ul>
-<p>total: "Somme" </p>
+<h1> tu es sur la page Show </h1>
+<script src='https://checkout.stripe.com/checkout.js' class='stripe-button'>
+                  data-key='<%= Rails.configuration.stripe[:publishable_key] %>'
+                  data-description='Payez votre commande'
+                  data-email=<%= current_user.email %>
+                  data-currency= 'eur',
+                  data-amount=<%=  current_user.cart.total %>
+                  data-locale='auto'></script>
