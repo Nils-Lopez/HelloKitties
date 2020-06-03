@@ -6,7 +6,11 @@
         <h3 class="my-0 font-weight-normal text-secondary"><%= @items.title%></h3>
       </div>
         <div class="card mb-4 box-shadow">
-          <img class="card-img-top" src="https://i.pinimg.com/originals/9b/59/87/9b59874cc4b095566b8d5ba453d3c53e.jpg" alt="Card image cap">
+          <% if @items.picture.attached? %>
+              <%= image_tag @items.picture, alt: "Product image", class: "card-img-top" %>
+          <% else %>
+              <img class="card-img-top" src="https://us.123rf.com/450wm/pe3check/pe3check1710/pe3check171000054/88673746-aucune-image-disponible-signe-ic%C3%B4ne-internet-pour-indiquer-l-absence-d-image-jusqu-%C3%A0-ce-que-celle-ci-soit.jpg?ver=6" alt="Card image cap">
+          <%end%>  
       <!-- Card body -->
       <div class="card-body text-left my-auto">
         <p class="font-weight-bold"> Description : <%= @items.description %> </p>

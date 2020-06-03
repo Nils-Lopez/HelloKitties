@@ -38,7 +38,11 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="<%=user_show_path%>">My profile</a>
             <a class="dropdown-item" href="<%=edit_user_registration_path(current_user.id)%>">Edit profile</a>
+            <% if current_user.admin %>
+               <a class="dropdown-item" href="<%=edit_admin_path(current_user.id)%>">Espace Admin</a>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" %>
+
           </div>
         </div>
       <%else%>
