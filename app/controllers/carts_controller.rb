@@ -39,6 +39,6 @@ class CartsController < ApplicationController
   def destroy
     @cart = Cart.find_by(user_id: current_user.id)
     @cart.items.clear
-    redirect_to carts_path
+    redirect_to root_path
   end
 end
