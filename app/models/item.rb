@@ -14,6 +14,7 @@ class Item < ApplicationRecord
 
   #Image validation to input later
 
+
   has_one_attached :picture
-  
+
 end

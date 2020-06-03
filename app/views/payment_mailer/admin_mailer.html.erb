@@ -7,15 +7,16 @@
 	<center>
 		<div class="card rounded-0">
 			<div class="card-header rounded-0">
-				<h1>Confirmation de votre achat</h1>
+				<h1>Nouvelle commande sur HelloKitties</h1>
 			</div>
 			<div class="card-body">
 				<p>
-					Bonjour <%=@user.email%>, 
-					nous te confirmons l'achat de l'article : 
+					Bonjour <%=@admin.email%>, 
+					Il y a eu une nouvelle commande sur votre site !
 					<ul>
+						<h2>L'utilisateur : <%=@acheteur.email%> a acheté :</h2>
 						<% total = 0 %>
-						<% @item.each do |item| %>
+						<% @items.each do |item| %>
 							<li>
 								<%= item.title %>, à un prix de $<%=item.price%>
 							</li>
@@ -23,9 +24,6 @@
 						<% end %>
 						<li>Total : <%= total %></li>
 					</ul>
-				</p>
-				<p>
-					Si ce n'est pas toi qui a effectuer le paiement bah c'est ton problème je suis pas ta mère !
 				</p>
 			</div>
 		</div>
