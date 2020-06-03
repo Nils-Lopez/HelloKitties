@@ -8,7 +8,7 @@
     <%= link_to "Connexion", new_user_session_path, class: "btn btn-outline-info" %>
   <%end%>
   <% if @is_admin %>
-    <a href="<%=new_item_path%>" id="AddProduct" class="btn btn-outline-secondary" onclick="document.getElementById('newProductForm').style.display='block'">Nouveau produit</a>
+    <a href="<%=new_item_path%>" id="AddProduct" class="btn btn-outline-secondary">Nouveau produit</a>
   <%end%>
 </div>
 <% flash.each do |key, value| %>
@@ -18,46 +18,36 @@
 <% end %>
 <!-- List of Items -->
 <div class="container">
-<<<<<<< HEAD
+
 <div class="row">
-<% @items.each do |item| %>
-<div class="col-md-4">
-  <div class="card mb-4 box-shadow">
-    <% if item.picture.attached? %>
-      <%= image_tag item.picture, alt: "Picture", class: "card-img-top"%>
-    <% else %>
-      <img class="card-img-top" src="https://us.123rf.com/450wm/pe3check/pe3check1710/pe3check171000054/88673746-aucune-image-disponible-signe-ic%C3%B4ne-internet-pour-indiquer-l-absence-d-image-jusqu-%C3%A0-ce-que-celle-ci-soit.jpg?ver=6" alt="Card image cap">
-    <%end%>
-    <div class="card-body">
-      <p class="card-text"><%= item.title %></p>
-      <div class="d-flex justify-content-center">
-        <div class="btn-group">
-          <%=link_to "View", item_path(item.id), method: :get, class: "btn btn-sm btn-outline-secondary" %>
-          <% if @is_admin %>
-            <%=link_to "Edit", edit_item_path(item.id), class: "btn btn-sm btn-outline-secondary" %>
-          <% end %>
-=======
-  <div class="row">
-    <% @items.each do |item| %>
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-          <img class="card-img-top" src="https://i.pinimg.com/originals/9b/59/87/9b59874cc4b095566b8d5ba453d3c53e.jpg" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text"><%= item.title %></p>
-            <div class="align-items-center">
-              <div class="btn-group">
-                <%=link_to "View", item_path(item.id), method: :get, class: "btn btn-sm btn-outline-secondary" %>
-              </div>
-              <% if user_signed_in? %>
-                <div class="btn-group">
-                  <%=link_to "Add to Cart", cart_path(item.id), method: :put, class: "btn btn-sm btn-secondary" %>
-                </div>
+  <% @items.each do |item| %>
+    <div class="col-md-4">
+      <div class="card mb-4 box-shadow">
+        <% if item.picture.attached? %>
+          <%= image_tag item.picture, alt: "Picture", class: "card-img-top"%>
+        <% else %>
+          <img class="card-img-top" src="https://us.123rf.com/450wm/pe3check/pe3check1710/pe3check171000054/88673746-aucune-image-disponible-signe-ic%C3%B4ne-internet-pour-indiquer-l-absence-d-image-jusqu-%C3%A0-ce-que-celle-ci-soit.jpg?ver=6" alt="Card image cap">
+        <%end%>
+        <div class="card-body">
+          <p class="card-text"><%= item.title %></p>
+          <div class="d-flex justify-content-center">
+            <div class="btn-group">
+              <%=link_to "View", item_path(item.id), method: :get, class: "btn btn-sm btn-outline-secondary" %>
+              <% if @is_admin %>
+                <%=link_to "Edit", edit_item_path(item.id), class: "btn btn-sm btn-outline-secondary" %>
               <% end %>
             </div>
+              
+            <% if user_signed_in? %>
+              <div class="btn-group">
+                <%=link_to "Add to Cart", cart_path(item.id), method: :put, class: "btn btn-sm btn-secondary" %>
+              </div>
+            <% end %>
           </div>
->>>>>>> a2465e8087add042365722bf8c4a1bfd4f3dfcbf
         </div>
       </div>
-    <%end%>
-  </div>
+    </div>
+  <% end %>
+
+
 </div>

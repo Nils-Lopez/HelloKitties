@@ -13,9 +13,7 @@ class Item < ApplicationRecord
   validates :price, :numericality => {greater_than_or_equal_to: 0}, presence: true
 
   #Image validation to input later
-<<<<<<< HEAD
+
   has_one_attached :picture
   
-=======
->>>>>>> a2465e8087add042365722bf8c4a1bfd4f3dfcbf
 end
