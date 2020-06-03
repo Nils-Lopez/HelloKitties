@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center" id="newProductForm" >
+      <div class="card w-50 box-shadow">
+        <div class="card-header bg-secondary text-white">
+          <h2 class="card-title d-flex justify-content-center">Ajouter un article</h2>
+        </div>
+        <div class="card-body">
+          <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
+            <input required="required" accept="image/*" type="file" class="form-control" name="file" id="inputfile" style="display: none;" required>
+            <label for="inputfile" class="btn btn-outline-primary btn-lg d-flex justify-content-center">Choisir une photo</label>
+            <br>
+            <div class="row">
+            <div class="col">
+              <div class="form-group">
+                  <input type="text" name="title" placeholder="Nom de l'article" minlength="2" maxlength="500" class="form-control" required>
+                    
+                </div>
+            </div>
+            <div class="col">
+              <div class="form-group">              
+                    <input class="form-control" type="number" name="price"  placeholder="Price" min="0" required>
+
+                </div>
+            </div>
+          </div>
+            
+            <br>
+            <textarea class="form-control" name="desc" placeholder="Description de l'article" required></textarea>
+            <br>
+            <% flash.each do |key, value| %>
+              <div class="flash <%= key %> text-danger"><%= value %></div>
+          <% end %>       
+          <br>
+          <input type="submit" value="Create" class="btn btn-primary rounded-0" style="float: right;">
+          <% end %>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,26 @@
+<div class="card w-50 align-center">
+	<div class="card-header bg-secondary text-white">
+		<h2 class="card-title d-flex justify-content-center">Espace administrateur</h2>
+	</div>
+	<div class="card-body">
+		<h2>Les administrateurs:</h2>
+		<ul class="list-group list-group-flush">	
+			<% @admins.each do |admin| %>
+				<li class="list-group-item">
+					<%=admin.email%>
+					<a href="<%=admin_path(admin.id)%>" class="btn btn-danger" style="float: right;" data-confirm="Voulez vous vraiment retirer <%=admin.email%> des administrateurs ?" data-method="DELETE">Retirer les droits d'administrateur</a>
+				</li>
+			<% end %>
+			
+		</ul>
+		<h2>Les utilisateurs:</h2>
+		<ul class="list-group list-group-flush">
+			<% @users.each do |user| %>
+				<li class="list-group-item">
+					<%=user.email%>
+					<a href="<%=admin_index_path(user.id)%>" class="btn btn-success" style="float: right;" data-confirm="Voulez vous vraiment transformer <%=user.email%> en administrateur ?" data-method="POST">Rendre administrateur</a>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center" id="newProductForm" >
+      <div class="card w-50 box-shadow">
+        <div class="card-header bg-secondary text-white">
+          <h2 class="card-title d-flex justify-content-center">Modifier un article</h2>
+        </div>
+        <div class="card-body">
+
+            <div class="card align-center border-0">
+              <% if @item.picture.attached? %>
+                <%= image_tag @item.picture, alt: "Product image", class: "card-img-top" %>
+              <% else %>
+                <img class="card-img-top" src="https://us.123rf.com/450wm/pe3check/pe3check1710/pe3check171000054/88673746-aucune-image-disponible-signe-ic%C3%B4ne-internet-pour-indiquer-l-absence-d-image-jusqu-%C3%A0-ce-que-celle-ci-soit.jpg?ver=6" alt="Card image cap">
+              <%end%>     
+              <%= form_tag item_pictures_path(@item), multipart: true do %>
+                <input required="required" accept="image/*" type="file" class="form-control" name="file" id="inputfile" style="display: none;" required>
+                <label for="inputfile" class="btn btn-outline-primary btn-lg d-flex justify-content-center">Changer la photo</label>
+                <input type="submit" value="Confirmer la nouvelle photo" class="btn btn-secondary btn-sm d-flex float-right">
+              <% end %>
+            </div>
+            <br>
+
+
+            <%= form_for @item do |f|%>
+              <div class="row">
+              <div class="col">
+                <div class="form-group">
+                    
+                    <%= f.text_field :title, class: "form-control", value: @item.title, minlength: "2", maxlength: "500", :required => true%>
+                      
+                  </div>
+              </div>
+              <div class="col">
+                <div class="form-group">              
+                      
+                      <%= f.number_field :price, class: "form-control", value: @item.price, min: "0", step: "1", :required => true%>
+
+                  </div>
+              </div>
+            </div>
+              
+              <br>
+              <%= f.text_area :description, class: "form-control", value: @item.description, minlength: "2", maxlength: "500", :required => true%>
+              <br>
+
+              <input type="submit" value="Update" class="btn btn-primary rounded-0" style="float: right;">
+            <% end %>
+        </div>
+      </div>
+    </div>
