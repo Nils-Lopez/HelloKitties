@@ -1,2 +1,10 @@
-<h1>Carts#show</h1>
-<p>Find me in app/views/carts/show.html.erb</p>
+<ul id="list_email">
+    <% @cart.items.each do |item| %>
+        <div>
+            <%= item.title %>
+            <%= item.description %>
+            <%= item.price %>
+        </div>
+    <% end %>
+</ul>
+<p>total: "Somme" </p>
