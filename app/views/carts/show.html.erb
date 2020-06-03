@@ -1,4 +1,35 @@
-<h1> tu es sur la page Show </h1>
+<h1> Your Cart: </h1>
+
+<div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @cart.items.each do |item| %>
+                <tr>
+                    <th><%= item.title %></th>
+                    <th>$ <%= item.price %></th>
+                    <th>1</th>
+                    <th>$ <%= item.price %></th>
+                    
+                </tr>
+            <% end %>
+            <tr>
+                <th> Total Price:</th>
+                <th></th>
+                <th></th>
+                <th>$ 12.000</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'>
                   data-key='<%= Rails.configuration.stripe[:publishable_key] %>'
                   data-description='Payez votre commande'
