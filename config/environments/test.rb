@@ -1,10 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # Capturing Rails (or plain Ruby) logs in Docker logs output
-  config.logger = Logger.new('/proc/1/fd/1')
-  config.level = 0
-
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
