@@ -20,6 +20,9 @@
             <input type="hidden" name="price" value="<%= @items.price %>">
             <input type="submit" class="btn btn-info" value="J'achète">
           </form>
+          <div class="btn-group">
+            <%=link_to "Add to Cart", cart_path(@items.id), method: :put, class: "btn btn-sm btn-secondary" %>
+          </div>
         </div>
       </div>
     </div>

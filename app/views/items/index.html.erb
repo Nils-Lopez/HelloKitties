@@ -18,6 +18,7 @@
 <% end %>
 <!-- List of Items -->
 <div class="container">
+<<<<<<< HEAD
 <div class="row">
 <% @items.each do |item| %>
 <div class="col-md-4">
@@ -35,11 +36,28 @@
           <% if @is_admin %>
             <%=link_to "Edit", edit_item_path(item.id), class: "btn btn-sm btn-outline-secondary" %>
           <% end %>
+=======
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" src="https://i.pinimg.com/originals/9b/59/87/9b59874cc4b095566b8d5ba453d3c53e.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text"><%= item.title %></p>
+            <div class="align-items-center">
+              <div class="btn-group">
+                <%=link_to "View", item_path(item.id), method: :get, class: "btn btn-sm btn-outline-secondary" %>
+              </div>
+              <% if user_signed_in? %>
+                <div class="btn-group">
+                  <%=link_to "Add to Cart", cart_path(item.id), method: :put, class: "btn btn-sm btn-secondary" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+>>>>>>> a2465e8087add042365722bf8c4a1bfd4f3dfcbf
         </div>
       </div>
-    </div>
+    <%end%>
   </div>
-</div>
-<%end%>
-</div>
 </div>
