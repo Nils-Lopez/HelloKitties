@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  require 'logger'
   before_action :authenticate_user!
 
   def index
@@ -23,14 +24,15 @@ class CartsController < ApplicationController
 
   def update
     @cart = Cart.find_by(user_id: current_user.id)
-    @cart.items.push(Item.find(params[:id]))
-    redirect_to cart_path(@cart.id)
+    @item = Item.find(params[:id])
+    @cart.items.push(@item)
+    redirect_to request.referrer
   end
 
   def delete
     @cart = Cart.find_by(user_id: current_user.id)
     @item = Item.find(params[:id])
-    @cart.items.delete.(Item.find(params[:id]))
+    @cart.items.delete(Item.find(params[:id]))
     redirect_to carts_path
   end
 
