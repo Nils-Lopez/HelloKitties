@@ -18,15 +18,16 @@
 						<% @item.each do |item| %>
 							<li>
 								<%= item.title %>, à un prix de <%=item.price%> €
-								<%= image_tag item.picture %>
-								<%= item.picture.filename %>
-								<%= url_for(item.picture) %>
+								<a href="<%= item.picture.download %>">Telecharger votre image</a>
                                 
 							</li>
 							<% total += item.price %>
 						<% end %>
 						<li>Total : <%= total %> €</li>
 					</ul>
+				</p>
+				<p>
+					check ton courrier gros, ca va arriver...
 				</p>
 				<p>
 					Si ce n'est pas toi qui as effectué le paiement, bah c'est ton problème... je suis pas ta mère !
