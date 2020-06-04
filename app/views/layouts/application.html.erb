@@ -38,6 +38,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="<%=user_path(current_user.id)%>">My profile</a>
             <%= link_to "My Cart", cart_path(current_user), method: :get, class: "dropdown-item" %>
+            <%= link_to "Past Orders", order_index_path, method: :get, class: "dropdown-item" %>
             <a class="dropdown-item" href="<%=edit_user_registration_path(current_user.id)%>">Edit profile</a>
             <% if current_user.admin %>
                <a class="dropdown-item" href="<%=edit_admin_path(current_user.id)%>">Espace Admin</a>

@@ -14,16 +14,16 @@
             <% @cart.items.each do |item| %>
                 <tr>
                     <th><%= item.title %></th>
-                    <th>$ <%= item.price %></th>
+                    <th><%= item.price %> €</th>
                     <th><%= item.cart_items.find_by(cart_id: @cart.id).quantity %></th>
-                    <th>$ <%= item.price * item.cart_items.find_by(cart_id: @cart.id).quantity %></th>        
+                    <th><%= item.price * item.cart_items.find_by(cart_id: @cart.id).quantity %> €</th>        
                 </tr>
             <% end %>
             <tr>
                 <th> Total Price:</th>
                 <th></th>
                 <th></th>
-                <th>$ 12.000</th>
+                <th><%= @cart.total %> €</th>
             </tr>
         </tbody>
     </table>
