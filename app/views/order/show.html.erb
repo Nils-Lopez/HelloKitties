@@ -1,5 +1,7 @@
-<h1>Order#show</h1>
-<p>Find me in app/views/order/show.html.erb</p>
+<div class="container d-flex justify-content-center pt-2">
+  <div class="card w-100">
+    <div class="card-header bg-primary text-white">
+      <h2 class="text-center">My Past Orders</h2>
 
 <% @order.items.each do |item| %>
     <p>
@@ -10,3 +12,6 @@
     </p>
 <% end %>
 <th><%= @order.total %> €</th>
+    </div>
+  </div>
+</div>
