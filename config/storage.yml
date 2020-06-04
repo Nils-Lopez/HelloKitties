@@ -22,10 +22,10 @@
 #   bucket: your_own_bucket
 
 microsoft:
-  service: AzureStorage
-  storage_account_name: <%= Rails.application.credentials.dig(:microsoft, :storage_account_name) %>
-  storage_access_key: <%= Rails.application.credentials.dig(:microsoft, :storage_access_key) %>
-  container: <%= Rails.application.credentials.dig(:microsoft, :container) %>
+service: AzureStorage
+storage_account_name: <%= Rails.application.credentials.dig(:microsoft, :storage_account_name) %>
+storage_access_key: <%= Rails.application.credentials.dig(:microsoft, :storage_access_key) %>
+container: <%= Rails.application.credentials.dig(:microsoft, :container) %>
 
 # mirror:
 #   service: Mirror
