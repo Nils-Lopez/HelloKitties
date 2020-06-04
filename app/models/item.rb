@@ -3,7 +3,8 @@ class Item < ApplicationRecord
   has_many :cart_items
   has_many :carts, through: :cart_items
 
-  has_many :orders
+  has_many :order_items
+  has_many :orders, through: :order_items
   has_many :users, through: :orders
   ## Validations:
   #Titre mandatory and between 2 and 500 CHARACTERS

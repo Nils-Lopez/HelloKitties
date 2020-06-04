@@ -1,0 +1,10 @@
+<h1>Order#index</h1>
+<p>Find me in app/views/order/index.html.erb</p>
+
+<% @orders.each do |order| %>
+    <p>
+        Commande Ref: <%= order.id %> du: <%= order.created_at %>
+        reference de paiement: <%= order.stripe_customer_id%>
+        <%= link_to "detail de la commmande", order_path(order.id), method: :get, class: "btn btn-secondary" %>
+    </p>
+<% end %>
