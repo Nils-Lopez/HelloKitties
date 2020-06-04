@@ -9,6 +9,8 @@ require 'faker'
 
 ## Create items sample
 Item.destroy_all
+User.destroy_all
+Cart.destroy_all
 
 10.times do
   Item.create!(
@@ -28,4 +30,20 @@ end
   Cart.create(user_id: @user.id)
 end
 
-## Create Cart sample
+1.times do
+@user = User.create!(
+  email: "compteadmin@yopmail.com",
+  password: "azerty",
+  admin: true
+)
+  Cart.create(user_id: @user.id)
+end
+
+1.times do
+  @user = User.create!(
+    email: "compteadmin2@yopmail.com",
+    password: "azerty",
+    admin: true
+  )
+  Cart.create(user_id: @user.id)
+end
