@@ -18,10 +18,13 @@
 						<% @item.each do |item| %>
 							<li>
 								<%= item.title %>, à un prix de <%=item.price%> €
-                                <%= image_tag item.image_url, height: "300px;" %>
+								<%= image_tag item.picture %>
+								<%= item.picture.filename %>
+								<%= url_for(item.picture) %>
+                                
 							</li>
 							<% total += item.price %>
-						<% end %
+						<% end %>
 						<li>Total : <%= total %> €</li>
 					</ul>
 				</p>
