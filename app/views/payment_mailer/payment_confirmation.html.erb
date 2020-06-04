@@ -17,11 +17,12 @@
 						<% total = 0 %>
 						<% @item.each do |item| %>
 							<li>
-								<%= item.title %>, à un prix de $<%=item.price%> €
+								<%= item.title %>, à un prix de <%=item.price%> €
+                                <%= image_tag item.picture, height: "300px;" %>
 							</li>
-							<% total += item.price.to_i %>
-						<% end %>
-						<li>Total : <%= total %></li>
+							<% total += item.price %>
+						<% end %
+						<li>Total : <%= total %> €</li>
 					</ul>
 				</p>
 				<p>
