@@ -8,7 +8,9 @@
 			<% @admins.each do |admin| %>
 				<li class="list-group-item">
 					<%=admin.email%>
-					<a href="<%=admin_path(admin.id)%>" class="btn btn-danger" style="float: right;" data-confirm="Voulez vous vraiment retirer <%=admin.email%> des administrateurs ?" data-method="DELETE">Retirer les droits d'administrateur</a>
+					<% if @admins.count > 1 %>
+						<a href="<%=admin_path(admin.id)%>" class="btn btn-danger" style="float: right;" data-confirm="Voulez vous vraiment retirer <%=admin.email%> des administrateurs ?" data-method="DELETE">Retirer les droits d'administrateur</a>
+					<%end%>
 				</li>
 			<% end %>
 			
