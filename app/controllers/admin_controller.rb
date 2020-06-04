@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   def edit
   	@users = User.where(admin: false)
   	@admins = User.where(admin: true)
+    @orders = Order.all
   end
 
   def destroy

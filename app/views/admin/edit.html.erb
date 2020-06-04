@@ -3,26 +3,63 @@
 		<h2 class="card-title d-flex justify-content-center">Espace administrateur</h2>
 	</div>
 	<div class="card-body">
-		<h2>Les administrateurs:</h2>
-		<ul class="list-group list-group-flush">	
-			<% @admins.each do |admin| %>
-				<li class="list-group-item">
-					<%=admin.email%>
-					<% if @admins.count > 1 %>
-						<a href="<%=admin_path(admin.id)%>" class="btn btn-danger" style="float: right;" data-confirm="Voulez vous vraiment retirer <%=admin.email%> des administrateurs ?" data-method="DELETE">Retirer les droits d'administrateur</a>
-					<%end%>
-				</li>
-			<% end %>
+		<div class="card text-center" id="card-users">
+		  <div class="card-header">
+		    <ul class="nav nav-tabs card-header-tabs">
+		      <li class="nav-item">
+		        <button class="nav-link active">Users</button>
+		      </li>
+		      <li class="nav-item">
+		        <button class="nav-link" onclick="document.getElementById('card-orders').style.display='block'; document.getElementById('card-users').style.display='none';">Orders</button>
+		      </li>
+		    </ul>
+		  </div>
+		  <div class="card-body">
+		    <h2>Les administrateurs:</h2>
+			<ul class="list-group list-group-flush">	
+				<% @admins.each do |admin| %>
+					<li class="list-group-item">
+						<%=admin.email%>
+						<% if @admins.count > 1 %>
+							<a href="<%=admin_path(admin.id)%>" class="btn btn-danger" style="float: right;" data-confirm="Voulez vous vraiment retirer <%=admin.email%> des administrateurs ?" data-method="DELETE">Retirer les droits d'administrateur</a>
+						<%end%>
+					</li>
+				<% end %>
 			
-		</ul>
-		<h2>Les utilisateurs:</h2>
-		<ul class="list-group list-group-flush">
-			<% @users.each do |user| %>
-				<li class="list-group-item">
-					<%=user.email%>
-					<a href="<%=admin_index_path(user.id)%>" class="btn btn-success" style="float: right;" data-confirm="Voulez vous vraiment transformer <%=user.email%> en administrateur ?" data-method="POST">Rendre administrateur</a>
-				</li>
+			</ul>
+			<h2>Les utilisateurs:</h2>
+			<ul class="list-group list-group-flush">
+				<% @users.each do |user| %>
+					<li class="list-group-item">
+						<%=user.email%>
+						<a href="<%=admin_index_path(user.id)%>" class="btn btn-success" style="float: right;" data-confirm="Voulez vous vraiment transformer <%=user.email%> en administrateur ?" data-method="POST">Rendre administrateur</a>
+					</li>
+				<% end %>
+			</ul>
+		  </div>
+		</div>
+
+
+		<div class="card text-center" id="card-orders" style="display: none;">
+		  <div class="card-header">
+		    <ul class="nav nav-tabs card-header-tabs">
+		      <li class="nav-item">
+		        <button class="nav-link" onclick="document.getElementById('card-users').style.display='block'; document.getElementById('card-orders').style.display='none';">Users</button>
+		      </li>
+		      <li class="nav-item">
+		        <button class="nav-link active">Orders</button>
+		      </li>
+		    </ul>
+		  </div>
+		  <div class="card-body">
+		    <% @orders.each do |order| %>
+			    <p>
+			        Commande Ref: <%= order.id %> du: <%= order.created_at %>
+			        reference de paiement: <%= order.stripe_customer_id%>
+			        <%= link_to "detail de la commmande", order_path(order.id), method: :get, class: "btn btn-secondary" %>
+			    </p>
 			<% end %>
-		</ul>
+		  </div>
+		</div>
 	</div>
 </div>
