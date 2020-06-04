@@ -17,7 +17,7 @@
 						<% total = 0 %>
 						<% @item.each do |item| %>
 							<li>
-								<%= item.title %>, à un prix de $<%=item.price%>
+								<%= item.title %>, à un prix de $<%=item.price%> €
 							</li>
 							<% total += item.price.to_i %>
 						<% end %>
@@ -25,7 +25,7 @@
 					</ul>
 				</p>
 				<p>
-					Si ce n'est pas toi qui a effectuer le paiement bah c'est ton problème je suis pas ta mère !
+					Si ce n'est pas toi qui as effectué le paiement, bah c'est ton problème... je suis pas ta mère !
 				</p>
 			</div>
 		</div>
