@@ -37,6 +37,9 @@
                 <%=link_to "Edit", edit_item_path(item.id), class: "btn btn-sm btn-outline-secondary" %>
               <% end %>
             </div>
+            <div class="btn-outline-secondary">
+              <%= item.price %> €
+            </div>
               
             <% if user_signed_in? %>
               <div class="btn-group">
