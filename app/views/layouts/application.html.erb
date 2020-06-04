@@ -36,11 +36,11 @@
         <div class="dropdown">
           <button class="btn btn-secondary rounded-0 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: 1px solid white;">My account</button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="<%=user_path(current_user.id)%>">My profile</a>
-            <%= link_to "My Cart", cart_path(current_user), method: :get, class: "dropdown-item" %>
+            <a class="dropdown-item" href="../me">My profile</a>
+            <%= link_to "My Cart", "../my_cart", method: :get, class: "dropdown-item" %>
             <a class="dropdown-item" href="<%=edit_user_registration_path(current_user.id)%>">Edit profile</a>
             <% if current_user.admin %>
-               <a class="dropdown-item" href="<%=edit_admin_path(current_user.id)%>">Espace Admin</a>
+               <a class="dropdown-item" href="../admin_space">Espace Admin</a>
             <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" %>
 

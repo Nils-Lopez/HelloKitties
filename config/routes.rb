@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   end
   root "items#index"
   resources :admin, only: [:edit, :create, :destroy]
+  get "/my_cart", to: "carts#show"
+  get "/me", to: "user#show"
+  get "/admin_space", to: "admin#edit"
   resources :carts
   resources :charges
 
