@@ -47,4 +47,6 @@ class CartsController < ApplicationController
     @cart.items.clear
     redirect_to root_path
   end
+
+private
 end
