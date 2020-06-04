@@ -24,9 +24,9 @@
 
 microsoft:
   service: AzureStorage
-  storage_account_name: <%= Rails.application.credentials.dig(:microsoft, :storage_account_name) %>
-  storage_access_key: <%= Rails.application.credentials.dig(:microsoft, :storage_access_key) %>
-  container: <%= Rails.application.credentials.dig(:microsoft, :container) %>
+  storage_account_name: "hellokittiesdisk"
+  storage_access_key: "OLPlQTdLudQUNC6/YmKVr7aKkN3LQ+qrkVR0VXVL/g3DzuSHHRdI1j9oXN+LcuMdr0d6hpM+rtwNMVzPepkAYQ=="
+  container: "pictures"
 
 # mirror:
 #   service: Mirror
