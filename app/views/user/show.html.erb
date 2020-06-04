@@ -10,35 +10,23 @@
     </div>
     <div class="card-body">
 		
-		<br>
-		<% if @user_items %>
 			<div class="card">
-				<h2>Mes produits</h2>
-	 		 	<ul class="list-group list-group-flush">
-				<%@user_items.each do |item|%>
-				 	<li class="list-group-item"><%item.title%></li>
-				<%end%>
-
-			  	</ul>
-			</div>
-			<br>
-		<% end %>
-		
-			<div class="card">
-				<h2>Mon panier</h2>
-	 		 	<ul class="list-group list-group-flush">
-	 		 	<% if @user_panier %>
-					<%@user_panier.each do |item|%>
-					 	<li class="list-group-item"><%item.title%></li>
-					<%end%>
-				<% else %>
-					<li class="list-group-item muted-text">
-						Votre panier est encore vide ! <br> <br>
-						<a href="<%=root_path%>">Voir les articles</a>
-					</li>
+				<div class="card-header">
+					<h2>Mon panier</h2>
 					
+	 		 	</div>
+	 		 	<br>
+	 		 	<% if @cart.items.count > 0 %>
+					<%= render "cart" %>
+				<% else %>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item muted-text">
+							Votre panier est encore vide ! <br> <br>
+							<a href="<%=root_path%>">Voir les articles</a>
+						</li>
+					</ul>
 				<%end%>
-			  	</ul>
+			  	
 			</div>
 		
     </div>
