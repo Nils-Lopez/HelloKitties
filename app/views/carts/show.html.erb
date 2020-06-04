@@ -15,9 +15,8 @@
                 <tr>
                     <th><%= item.title %></th>
                     <th>$ <%= item.price %></th>
-                    <th>1</th>
-                    <th>$ <%= item.price %></th>
-                    
+                    <th><%= item.cart_items.find_by(cart_id: @cart.id).quantity %></th>
+                    <th>$ <%= item.price * item.cart_items.find_by(cart_id: @cart.id).quantity %></th>        
                 </tr>
             <% end %>
             <tr>

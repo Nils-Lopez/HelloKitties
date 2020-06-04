@@ -25,7 +25,13 @@ class CartsController < ApplicationController
   def update
     @cart = Cart.find_by(user_id: current_user.id)
     @item = Item.find(params[:id])
-    @cart.items.push(@item)
+    @cart_item = CartItem.find_by(cart_id: @cart.id, item_id: @item.id)
+    if @cart_item
+      item_quantity = @cart_item.quantity + 1
+      @cart_item.update(quantity: item_quantity)
+    else
+      CartItem.create(cart_id: @cart.id, item_id: @item.id, quantity: 1)
+    end
     redirect_to request.referrer
   end
 

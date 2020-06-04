@@ -22,7 +22,12 @@ class ChargesController < ApplicationController
     User.where(admin: true).each do |admin|
       PaymentMailer.admin_mailer(@cart.items, admin, current_user).deliver_now
     end
-    Order.create(stripe_customer_id: customer.id, user_id: current_user.id)
+    @order = Order.create(stripe_customer_id: customer.id, user_id: current_user.id)
+    @cart.cart_items.each do |cart_item|
+      OrderItem.create(order_id: @order.id, item_id: cart_item.item_id, quantity: cart_item.quantity)
+    end
+    @cart.items.clear
+
     
   rescue Stripe::CardError => e
     flash[:error] = e.message

@@ -9,8 +9,5 @@ class CreateCarts < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-
-    ## Create table for Carts_Items
-    create_join_table :carts, :items
   end
 end
