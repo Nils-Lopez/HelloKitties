@@ -1,16 +1,22 @@
-<div class="container d-flex justify-content-center pt-2">
+<div class="container d-flex justify-content-center pt-5">
   <div class="card w-100">
     <div class="card-header bg-primary text-white">
       <h2 class="text-center">My Past Orders</h2>
-
-
-<% @orders.each do |order| %>
-    <p>
-        Commande Ref: <%= order.id %> du: <%= order.created_at %>
-        reference de paiement: <%= order.stripe_customer_id%>
-        <%= link_to "detail de la commmande", order_path(order.id), method: :get, class: "btn btn-secondary" %>
-    </p>
-<% end %>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <h5 class="col-4 font-weight-bold">Date</h5>
+        <h5 class="col-4 font-weight-bold">Référence de Paiement</h5>
+        <h5 class="col-4 font-weight-bold">Détail de commande</h5>    
+      </div>
+      <% @orders.each do |order| %>
+        <div class="row">    
+          <p class="col-4">Commande passé le <%= order.created_at %></p>
+          <p class="col-4"><%= order.stripe_customer_id%></p>
+          <p class="col-4"><%= link_to "detail de la commmande", order_path(order.id), method: :get, class: "btn btn-secondary" %>   </p>
+        </div>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
