@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(version: 2020_06_03_232817) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "carts_items", id: false, force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "item_id", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -65,7 +70,6 @@ ActiveRecord::Schema.define(version: 2020_06_03_232817) do
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "item_id"
-    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"

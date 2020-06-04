@@ -1,40 +1,40 @@
-<h1> Your Cart: </h1>
-
-<div class="container">
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @cart.items.each do |item| %>
-                <tr>
-                    <th><%= item.title %></th>
-                    <th><%= item.price %> €</th>
-                    <th><%= item.cart_items.find_by(cart_id: @cart.id).quantity %></th>
-                    <th><%= item.price * item.cart_items.find_by(cart_id: @cart.id).quantity %> €</th>        
-                </tr>
-            <% end %>
-            <tr>
-                <th> Total Price:</th>
-                <th></th>
-                <th></th>
-                <th><%= @cart.total %> €</th>
-            </tr>
-        </tbody>
-    </table>
+<div class="container d-flex justify-content-center pt-2">
+  <div class="card w-100">
+    <div class="card-header bg-primary text-white">
+      <h2 class="text-center">My Cart</h2>
+    </div>
+    <div class="card-body">
+    <div class="row">
+      <h5 class="col-1 font-weight-bold">N°</h5>
+      <h5 class="col-5 font-weight-bold"><p>Title</p></h5>
+      <h5 class="col-2 font-weight-bold"><p>Unit Price</p></h5>
+      <h5 class="col-2 font-weight-bold"><p>Quantity</p></h5>
+      <h5 class="col-2 font-weight-bold"><p>Total</p></h5>
+    </div>
+    <% @cart.items.each_with_index do |item, index| %>
+      <div class="row pb-1 bg-light font-weight-light">
+        <div class="col-1"><%= index %></div>
+        <div class="col-5"><%= item.title %></div>
+        <div class="col-2"><%= item.price %> €</div>
+        <div class="col-2"><%= item.cart_items.find_by(cart_id: @cart.id).quantity %></div>
+        <div class="col-2"><%= item.price * item.cart_items.find_by(cart_id: @cart.id).quantity %> €</div>
+      </div>
+    <% end %>
+      </br>
+      <div>
+        <h5 class="font-weight-bold"> Total Price: <%= @cart.total %> €</h5>
+        <%= form_tag charges_path do %>
+          <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'
+                            data-key='<%= Rails.configuration.stripe[:publishable_key] %>'
+                            data-description='Payez votre commande'
+                            data-email="<%= current_user.email %>"
+                            data-currency= 'eur',
+                            data-amount="<%= (current_user.cart.total) * 100 %>"
+                            data-locale='auto'></script>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-  <%= form_tag charges_path do %>
-  <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'
-                    data-key='<%= Rails.configuration.stripe[:publishable_key] %>'
-                    data-description='Payez votre commande'
-                    data-email="<%= current_user.email %>"
-                    data-currency= 'eur',
-                    data-amount="<%= (current_user.cart.total) * 100 %>"
-                    data-locale='auto'></script>
-  <% end %>
+
