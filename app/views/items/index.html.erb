@@ -1,14 +1,16 @@
 
 <!--Jumbotron -->
-<div class="jumbotron text-center">
-  <h2 class="display-3" style="color: #053557">HelloKitties</h2>
-  <p class="lead">Miaow Miaow</p>
+<div class="jumbotron text-center" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://bingers.blog/wp-content/uploads/2019/03/hello-kitty-movie.jpg);
+background-size: cover;
+background-position: center;">
+  <h2 class="display-3 bg text-light" style="color: #053557">HelloKitties</h2>
+  <p class="lead text-white">Miaow Miaow</p>
   <% unless user_signed_in? %>
     <%= link_to "Inscription", new_user_registration_path, class: "text-white btn btn-info" %>
     <%= link_to "Connexion", new_user_session_path, class: "btn btn-outline-info" %>
   <%end%>
   <% if @is_admin %>
-    <a href="<%=new_item_path%>" id="AddProduct" class="btn btn-outline-secondary">Nouveau produit</a>
+    <a href="<%=new_item_path%>" id="AddProduct" class="btn btn-outline-secondary">New product</a>
   <%end%>
 </div>
 <% flash.each do |key, value| %>

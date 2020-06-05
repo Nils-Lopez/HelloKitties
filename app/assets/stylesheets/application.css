@@ -14,3 +14,8 @@
  *= require main
  *= require bootstrap.min
  */
+.jumbotron
+{
+  background-color: dark;
+  background-image: url(https://images.alphacoders.com/475/thumb-1920-475665.jpg);
+}
