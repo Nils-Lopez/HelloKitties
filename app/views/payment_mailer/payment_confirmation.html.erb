@@ -18,7 +18,7 @@
 						<% @item.each do |item| %>
 							<li>
 								<%= item.title %>, à un prix de <%=item.price%> €
-								<a href="<%= item.picture.download %>">Telecharger votre image</a>
+								<%= image_tag rails_service_blob_path(filename: item.picture.filename, signed_id: item.picture.attachment.blob.signed_id) %>
                                 
 							</li>
 							<% total += item.price %>
