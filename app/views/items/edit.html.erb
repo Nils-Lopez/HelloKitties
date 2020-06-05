@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center" id="newProductForm" >
       <div class="card w-50 box-shadow">
         <div class="card-header bg-secondary text-white">
-          <h2 class="card-title d-flex justify-content-center">Modifier un article</h2>
+          <h2 class="card-title d-flex justify-content-center">Modify an article</h2>
         </div>
         <div class="card-body">
 
@@ -13,8 +13,8 @@
               <%end%>     
               <%= form_tag item_pictures_path(@item), multipart: true do %>
                 <input required="required" accept="image/*" type="file" class="form-control" name="file" id="inputfile" style="display: none;" required>
-                <label for="inputfile" class="btn btn-outline-primary btn-lg d-flex justify-content-center">Changer la photo</label>
-                <input type="submit" value="Confirmer la nouvelle photo" class="btn btn-secondary btn-sm d-flex float-right">
+                <label for="inputfile" class="btn btn-outline-primary btn-lg d-flex justify-content-center">Change photo</label>
+                <input type="submit" value="Confirm the new photo" class="btn btn-secondary btn-sm d-flex float-right">
               <% end %>
             </div>
             <br>

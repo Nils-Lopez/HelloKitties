@@ -10,7 +10,7 @@ background-position: center;">
     <%= link_to "Connexion", new_user_session_path, class: "btn btn-outline-info" %>
   <%end%>
   <% if @is_admin %>
-    <a href="<%=new_item_path%>" id="AddProduct" class="btn btn-outline-secondary">Nouveau produit</a>
+    <a href="<%=new_item_path%>" id="AddProduct" class="btn btn-outline-secondary">New product</a>
   <%end%>
 </div>
 <% flash.each do |key, value| %>

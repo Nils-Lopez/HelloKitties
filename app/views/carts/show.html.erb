@@ -10,7 +10,7 @@
       <h5 class="col-2 font-weight-bold">Unit Price</h5>
       <h5 class="col-2 font-weight-bold">Quantity</h5>
       <h5 class="col-1 font-weight-bold">Total</h5>
-      <h5 class="col-2 font-weight-bold">Lien Image</h5>
+      <h5 class="col-2 font-weight-bold">Link</h5>
     </div>
     <% @cart.items.each_with_index do |item, index| %>
       <div class="row pb-1 bg-light font-weight-light align-items-center">
@@ -19,7 +19,7 @@
         <div class="col-2"><%= item.price %> €</div>
         <div class="col-2"><%= item.cart_items.find_by(cart_id: @cart.id).quantity %></div>
         <div class="col-1"><%= item.price * item.cart_items.find_by(cart_id: @cart.id).quantity %> €</div>
-        <button type="button" class="col-2 btn btn-primary"><%= link_to "Voir l'image", item_path(item.id), class: "text-white" %></button>
+        <button type="button" class="col-2 btn btn-primary"><%= link_to "See the image", item_path(item.id), class: "text-white" %></button>
 
       </div>
     <% end %>
@@ -29,7 +29,7 @@
         <%= form_tag charges_path do %>
           <script src='https://checkout.stripe.com/checkout.js' class='stripe-button'
                             data-key='<%= Rails.configuration.stripe[:publishable_key] %>'
-                            data-description='Payez votre commande'
+                            data-description='Buy your command'
                             data-email="<%= current_user.email %>"
                             data-currency= 'eur',
                             data-amount="<%= (current_user.cart.total) * 100 %>"
