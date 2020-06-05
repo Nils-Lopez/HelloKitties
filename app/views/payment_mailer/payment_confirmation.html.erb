@@ -17,15 +17,20 @@
 						<% total = 0 %>
 						<% @item.each do |item| %>
 							<li>
-								<%= item.title %>, à un prix de $<%=item.price%>
+								<%= item.title %>, à un prix de <%=item.price%> €
+								<%= image_tag rails_service_blob_path(filename: item.picture.filename, signed_id: item.picture.attachment.blob.signed_id) %>
+                                
 							</li>
-							<% total += item.price.to_i %>
+							<% total += item.price %>
 						<% end %>
-						<li>Total : <%= total %></li>
+						<li>Total : <%= total %> €</li>
 					</ul>
 				</p>
 				<p>
-					Si ce n'est pas toi qui a effectuer le paiement bah c'est ton problème je suis pas ta mère !
+					check ton courrier gros, ca va arriver...
+				</p>
+				<p>
+					Si ce n'est pas toi qui as effectué le paiement, bah c'est ton problème... je suis pas ta mère !
 				</p>
 			</div>
 		</div>
