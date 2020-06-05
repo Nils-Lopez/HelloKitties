@@ -18,8 +18,10 @@
         <div class="p-2 text-dark"> 
           <form action= "/charges/new" method="GET">
             <input type="hidden" name="price" value="<%= @items.price %>">
-            <input type="submit" class="btn btn-info" value="J'achète">
           </form>
+          <div class="btn-outline-secondary">
+            <%= @items.price %> €
+          </div>
           <div class="btn-group">
             <%=link_to "Add to Cart", cart_path(@items.id), method: :put, class: "btn btn-sm btn-secondary" %>
           </div>
