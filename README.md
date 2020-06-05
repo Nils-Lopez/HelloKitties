@@ -1,5 +1,5 @@
 <h1>Hello Kitties</h1>
-<h2>La version en ligne se trouve ici : https://hello-kitties.herokuapp.com/ </h2>
+<h2>La version en ligne se trouve ici : https://hkproject.herokuapp.com/ </h2>
 <p>Tu peux t'y inscrire ou te connecter directement sur le compte administrateur :<p>
 <p>email: compteadmin@yopmail.com <p>
 <p>mdp: azerty </p>

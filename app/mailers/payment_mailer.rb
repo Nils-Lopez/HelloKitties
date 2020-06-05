@@ -1,7 +1,9 @@
 class PaymentMailer < ApplicationMailer
 	default from: 'dev.hellokitties@gmail.com'
- 
+	
+	
   def payment_confirmation(item, user)
+	Item.all.with_attached_picture
   	@user = user
 
   	#@url = "monsite.herokuapp.com"
