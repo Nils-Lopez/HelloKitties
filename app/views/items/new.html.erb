@@ -1,12 +1,12 @@
 <div class="d-flex justify-content-center" id="newProductForm" >
       <div class="card w-50 box-shadow">
         <div class="card-header bg-secondary text-white">
-          <h2 class="card-title d-flex justify-content-center">Ajouter un article</h2>
+          <h2 class="card-title d-flex justify-content-center">Add an article</h2>
         </div>
         <div class="card-body">
           <%= form_tag url_for(action: 'create'), method: "post", multipart: true do %>
             <input required="required" accept="image/*" type="file" class="form-control" name="file" id="inputfile" style="display: none;" required>
-            <label for="inputfile" class="btn btn-outline-primary btn-lg d-flex justify-content-center">Choisir une photo</label>
+            <label for="inputfile" class="btn btn-outline-primary btn-lg d-flex justify-content-center">Choose a photo</label>
             <br>
             <div class="row">
             <div class="col">
@@ -24,7 +24,7 @@
           </div>
             
             <br>
-            <textarea class="form-control" name="desc" placeholder="Description de l'article" required></textarea>
+            <textarea class="form-control" name="desc" placeholder="Description of article" required></textarea>
             <br>
             <% flash.each do |key, value| %>
               <div class="flash <%= key %> text-danger"><%= value %></div>
