@@ -6,14 +6,14 @@
     <div class="card-body">
       <div class="row">
         <h5 class="col-4 font-weight-bold">Date</h5>
-        <h5 class="col-4 font-weight-bold">Référence de Paiement</h5>
-        <h5 class="col-4 font-weight-bold">Détail de commande</h5>    
+        <h5 class="col-4 font-weight-bold">Payment reference</h5>
+        <h5 class="col-4 font-weight-bold">Order details</h5>    
       </div>
       <% @orders.each do |order| %>
         <div class="row">    
-          <p class="col-4">Commande passé le <%= order.created_at %></p>
+          <p class="col-4">Order placed on <%= order.created_at %></p>
           <p class="col-4"><%= order.stripe_customer_id%></p>
-          <p class="col-4"><%= link_to "detail de la commmande", order_path(order.id), method: :get, class: "btn btn-secondary" %>   </p>
+          <p class="col-4"><%= link_to "Order details", order_path(order.id), method: :get, class: "btn btn-secondary" %>   </p>
         </div>
       <% end %>
       </div>

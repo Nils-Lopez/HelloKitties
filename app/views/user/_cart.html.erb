@@ -14,7 +14,7 @@
         <div class="col-2"><%= item.price %> €</div>
         <div class="col-2"><%= item.cart_items.find_by(cart_id: @cart.id).quantity %></div>
         <div class="col-1"><%= item.price * item.cart_items.find_by(cart_id: @cart.id).quantity %> €</div>
-        <button type="button" class="col-2 btn btn-primary"><%= link_to "Voir l'image", item_path(item.id), class: "text-white" %></button>
+        <button type="button" class="col-2 btn btn-primary"><%= link_to "Show picture", item_path(item.id), class: "text-white" %></button>
 
       </div>
     <% end %>
